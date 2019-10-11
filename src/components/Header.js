@@ -33,7 +33,7 @@ Header.propTypes = {
 }
 
 Header.defaultProps = {
-	title : 'Ordinary Scoreboard',
+	title : 'NIKE Scoreboard',
 }
 
 export default Header;

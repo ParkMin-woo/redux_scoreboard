@@ -4,23 +4,12 @@ import './App.css';
 import Header from "./components/Header";
 import Player from "./components/Player";
 import AddPlayerForm from "./components/AddPlayerForm";
+import {connect} from "react-redux";
 
 // 자식에서 부모로 통신하는 예제
 class App extends React.Component {
 
   // maxId = 4;
-
-  constructor() {
-    super();
-    this.state = {
-      players : [
-        {name : "Kim Sooyoung" , score : 0 , id : 1 },
-        {name : "Park Minwoo"  , score : 0 , id : 2 },
-        {name : "Kim Dongheon" , score : 0 , id : 3 },
-        {name : "Yoo Jaean" , score : 0 , id : 4 },
-      ],
-    };
-  }
 
   handleRemovePlayer = (id) => {
     this.setState(prevState => {
@@ -93,11 +82,11 @@ class App extends React.Component {
   }
 
   render() {
-    console.log("this.state in App : " , this.state);
+    console.log("this.props in App : " , this.props);
     return (
       <div className="scoreboard">
-        <Header title = "NIKE Scoreboard" joinedPlayersCount = {this.state.players.length} players = {this.state.players} />
-        {this.state.players.map(item =>
+        <Header joinedPlayersCount = {this.props.players.length} players = {this.props.players} />
+        {this.props.players.map(item =>
           <Player
             name = {item.name}
             score = {item.score}
@@ -115,6 +104,10 @@ class App extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  players : state.playerReducer.players,
+});
+
 {/*JSON Array 형태로 나타내보기*/}
 // const players = [
 // 	{name : "Kim Sooyoung" , id : 1 },
@@ -123,4 +116,4 @@ class App extends React.Component {
 // 	{name : "Yoo Jaean" , id : 4 },
 // ];
 
-export default App;
+export default connect(mapStateToProps)(App);
