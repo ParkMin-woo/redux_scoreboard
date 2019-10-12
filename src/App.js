@@ -66,6 +66,7 @@ class App extends React.Component {
 
   // https://eastflag.co.kr/react/scoreboard-by-c-r-a/controlled-component/
   // 에 올라와있는 모범 답안
+  /*
   handleAddPlayer = (name) => {
     this.setState(prevState => {
       const maxId = prevState.players.reduce((max, player) => {
@@ -80,6 +81,7 @@ class App extends React.Component {
       }
     });
   }
+  */
 
   render() {
     console.log("this.props in App : " , this.props);
@@ -97,7 +99,8 @@ class App extends React.Component {
             scoreUpDown = {this.handleScoreUpDown}
           />)
         }
-        <AddPlayerForm addPlayer = {this.handleAddPlayer} />
+        {/*<AddPlayerForm addPlayer = {this.handleAddPlayer} />*/}
+        <AddPlayerForm />
       </div>
     );
 
@@ -105,6 +108,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
+  // 왼쪽은 props, 오른쪽은 store의 state
   players : state.playerReducer.players,
 });
 

@@ -8,6 +8,18 @@ const playerInitialState = {
 	],
 }
 
+let maxId = 4;
+
 export const playerReducer = (state = playerInitialState , action) => {
+	switch (action.type) {
+		case 'ADD_PLAYER' :
+			console.log('addPlayer');
+			const players = [...state.players];
+			players.push({name : action.name , id : ++maxId, score : 0});
+			return {
+				...state ,
+				players ,
+			};
+	}
 	return state;
 }

@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from "react-redux";
+import {addPlayer} from "../redux/actions";
 
 class AddPlayerForm extends React.Component {
 
@@ -31,4 +33,13 @@ class AddPlayerForm extends React.Component {
 	}
 }
 
-export default AddPlayerForm
+// Action을 dispatch하는 function을 mapping
+// 자식 -> 부모 통신
+const mapActionToProps = (dispatch) => ({
+		addPlayer : (name) => dispatch(addPlayer(name)),
+	}
+);
+
+export default connect(null  , mapActionToProps)(AddPlayerForm);
+
+// export default AddPlayerForm;
