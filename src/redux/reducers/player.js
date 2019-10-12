@@ -1,4 +1,4 @@
-import {ADD_PLAYER, REMOVE_PLAYER} from "../actionTypes";
+import {ADD_PLAYER, REMOVE_PLAYER, SCORE_UP_DOWN} from "../actionTypes";
 
 const playerInitialState = {
 	// title : "NIKE Scoreboard",
@@ -31,6 +31,9 @@ export const playerReducer = (state = playerInitialState , action) => {
 				...state,
 				players ,
 			};
+		case SCORE_UP_DOWN :
+			console.log("scoreUpDown");
+			break;
 	}
 	return state;
 }
