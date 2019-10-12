@@ -2,6 +2,7 @@ import React from "react";
 import Stats from "./Stats";
 import {Stopwatch} from "./Stopwatch";
 import PropTypes from 'prop-types';
+import {connect} from "react-redux";
 
 const Header = (props) => {
 	console.log("props in Header : " , props);
@@ -13,7 +14,7 @@ const Header = (props) => {
 			<Stats/>
 
 			{/*SCOREBOARD*/}
-			<h1 className="h1">{title}</h1>
+			<h1 className="h1">{props.title}</h1>
 			{/*<span className="stats">PLAYERS : {props.joinedPlayersCount}</span>*/}
 
 			<Stopwatch />
@@ -33,7 +34,13 @@ Header.propTypes = {
 }
 
 Header.defaultProps = {
-	title : 'NIKE Scoreboard',
+	title : 'Scoreboard',
 }
 
-export default Header;
+const mapStateToProps = (state) => ({
+	title : state.playerReducer.title ,
+});
+
+export default connect(mapStateToProps)(Header);
+
+// export default Header;

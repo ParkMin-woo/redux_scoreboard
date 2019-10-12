@@ -1,7 +1,7 @@
 import {ADD_PLAYER, REMOVE_PLAYER, SCORE_UP_DOWN} from "../actionTypes";
 
 const playerInitialState = {
-	// title : "NIKE Scoreboard",
+	title : "NIKE Scoreboard",
 	players : [
 		{name : "Kim Sooyoung" , score : 0 , id : 1 },
 		{name : "Park Minwoo"  , score : 0 , id : 2 },
