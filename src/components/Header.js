@@ -10,7 +10,7 @@ const Header = (props) => {
 	return (
 		<header className="header">
 
-			<Stats joinedPlayersCount = {joinedPlayersCount} players = {players}/>
+			<Stats/>
 
 			{/*SCOREBOARD*/}
 			<h1 className="h1">{title}</h1>

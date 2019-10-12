@@ -91,7 +91,7 @@ class App extends React.Component {
     console.log("this.props in App : " , this.props);
     return (
       <div className="scoreboard">
-        <Header joinedPlayersCount = {this.props.players.length} players = {this.props.players} />
+        <Header />
         {this.props.players.map(item =>
           <Player
             name = {item.name}
