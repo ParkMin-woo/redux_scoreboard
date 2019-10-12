@@ -4,17 +4,20 @@ import {Stopwatch} from "./Stopwatch";
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 
+import styles from '../pages/scoreboard/Scoreboard.module.css';
+import className from "classnames";
+
 const Header = (props) => {
 	console.log("props in Header : " , props);
 	// result : {title: "NIKE Scoreboard", joinedPlayersCount: 11}
 	const { players, title , joinedPlayersCount } = props;
 	return (
-		<header className="header">
+		<header className={styles.header}>
 
 			<Stats/>
 
 			{/*SCOREBOARD*/}
-			<h1 className="h1">{props.title}</h1>
+			<h1 className={styles.h1}>{props.title}</h1>
 			{/*<span className="stats">PLAYERS : {props.joinedPlayersCount}</span>*/}
 
 			<Stopwatch />

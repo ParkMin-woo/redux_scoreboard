@@ -1,6 +1,9 @@
 import React from 'react';
 import {connect} from "react-redux";
 
+import styles from '../pages/scoreboard/Scoreboard.module.css';
+import className from "classnames";
+
 const Stats = (props) => {
 	console.log("props in Stats : " , props);
 	// let joinedPlayersCount = props.joinedPlayersCount;
@@ -14,7 +17,7 @@ const Stats = (props) => {
 	console.log("totalScores in Stats : " , totalScores);
 
 	return (
-		<table>
+		<table  className={styles.stats}>
 			<tbody>
 			<tr>
 				<td>Players :</td>
