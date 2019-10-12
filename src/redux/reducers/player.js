@@ -11,10 +11,11 @@ const playerInitialState = {
 let maxId = 4;
 
 export const playerReducer = (state = playerInitialState , action) => {
+	let players
 	switch (action.type) {
 		case 'ADD_PLAYER' :
 			console.log('addPlayer');
-			const players = [...state.players];
+			players = [...state.players];
 			players.push({name : action.name , id : ++maxId, score : 0});
 			return {
 				...state ,
@@ -22,6 +23,12 @@ export const playerReducer = (state = playerInitialState , action) => {
 			};
 		case 'REMOVE_PLAYER' :
 			console.log("removePlayer");
+			// const players2 = state.players.filter(player => player.id !== action.id );
+			players = state.players.filter(player => player.id !== action.id );
+			return {
+				...state,
+				players ,
+			};
 	}
 	return state;
 }
