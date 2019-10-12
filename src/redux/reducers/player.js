@@ -20,6 +20,8 @@ export const playerReducer = (state = playerInitialState , action) => {
 				...state ,
 				players ,
 			};
+		case 'REMOVE_PLAYER' :
+			console.log("removePlayer");
 	}
 	return state;
 }

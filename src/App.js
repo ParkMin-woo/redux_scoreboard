@@ -11,12 +11,14 @@ class App extends React.Component {
 
   // maxId = 4;
 
+  /*
   handleRemovePlayer = (id) => {
     this.setState(prevState => {
       console.log("prevState.players in removePlayer : " , prevState.players);
       return { players : prevState.players.filter(item => item.id !== id) };
     });
   }
+  */
 
   handleScoreUpDown = (id, delta) => {
     console.log("id : " , id , "delta : " , delta);
@@ -95,7 +97,7 @@ class App extends React.Component {
             key = {item.id.toString()}
             id = {item.id}
             // index = {index}
-            removePlayer = {this.handleRemovePlayer}
+            // removePlayer = {this.handleRemovePlayer}
             scoreUpDown = {this.handleScoreUpDown}
           />)
         }

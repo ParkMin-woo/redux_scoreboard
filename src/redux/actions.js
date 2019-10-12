@@ -5,3 +5,8 @@ export const addPlayer = (name) => ({
 	// payload : name,
 	name : name
 });
+
+export const removePlayer = (id) => ({
+	type : "REMOVE_PLAYER",
+	id
+});

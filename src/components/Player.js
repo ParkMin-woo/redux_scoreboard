@@ -1,6 +1,8 @@
 import React from 'react';
 import Counter from "./Counter";
 import PropTypes from 'prop-types';
+import {connect} from "react-redux";
+import {removePlayer} from "../redux/actions";
 
 // const Player = (props) => {
 class Player extends React.Component {
@@ -31,4 +33,12 @@ class Player extends React.Component {
 
 }
 
-export default Player;
+const mapActionToProps = (dispatch) => ({
+		removePlayer : (id) => dispatch(removePlayer(id)),
+	}
+);
+
+export default connect(null , mapActionToProps)(Player);
+
+
+// export default Player;
