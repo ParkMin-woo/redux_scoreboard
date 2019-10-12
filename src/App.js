@@ -10,6 +10,16 @@ import {CustomPlayer} from "./components/CustomPlayer";
 // 자식에서 부모로 통신하는 예제
 class App extends React.Component {
 
+  getHighScore() {
+    let max = 0;
+    this.props.players.forEach(player => {
+      if(player.score > max) {
+        max = player.score;
+      }
+    });
+    return max;
+  }
+
   // maxId = 4;
 
   /*
@@ -102,6 +112,7 @@ class App extends React.Component {
             // index = {index}
             // removePlayer = {this.handleRemovePlayer}
             // scoreUpDown = {this.handleScoreUpDown}
+            isHighScore = {item.score === this.getHighScore()}
           />)
         }
         {/*<AddPlayerForm addPlayer = {this.handleAddPlayer} />*/}

@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import {removePlayer} from "../redux/actions";
 
 // const Player = (props) => {
-class Player extends React.Component {
+class Player extends React.PureComponent {
 	static propTypes = {
 		removePlayer : PropTypes.func,
 		id : PropTypes.number,
@@ -18,6 +18,7 @@ class Player extends React.Component {
 			<div className="player">
 				<span className="player-name">
 					<button className="remove-player" onClick={() => {removePlayer(id)}} > X </button>
+					{this.props.children}
 					{name}
 				</span>
 				{/*<Counter score = {score} scoreUpDown = {scoreUpDown} id = {id} />*/}
@@ -27,10 +28,12 @@ class Player extends React.Component {
 
 	}
 
+	/*
 	shouldComponentUpdate(nextProps, nextState, nextContext) {
 		// console.log("nextProps in shouldComponentUpdate : " , nextProps);
 		return nextProps.score !== this.props.score ? true : false;
 	}
+	 */
 
 }
 
