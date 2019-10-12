@@ -1,8 +1,10 @@
 import React from 'react';
+import {connect} from "react-redux";
 
 const Stats = (props) => {
 	console.log("props in Stats : " , props);
-	let joinedPlayersCount = props.joinedPlayersCount;
+	// let joinedPlayersCount = props.joinedPlayersCount;
+	let joinedPlayersCount = props.players.length;
 
 	let totalScores = 0;
 	props.players.forEach(player => {
@@ -27,4 +29,10 @@ const Stats = (props) => {
 	);
 }
 
-export default Stats;
+const mapStateToProps = (state) => ({
+	players : state.playerReducer.players,
+});
+
+export default connect(mapStateToProps)(Stats);
+
+// export default Stats;
