@@ -1,3 +1,5 @@
+import {ADD_PLAYER, REMOVE_PLAYER} from "../actionTypes";
+
 const playerInitialState = {
 	// title : "NIKE Scoreboard",
 	players : [
@@ -13,7 +15,7 @@ let maxId = 4;
 export const playerReducer = (state = playerInitialState , action) => {
 	let players
 	switch (action.type) {
-		case 'ADD_PLAYER' :
+		case ADD_PLAYER :
 			console.log('addPlayer');
 			players = [...state.players];
 			players.push({name : action.name , id : ++maxId, score : 0});
@@ -21,7 +23,7 @@ export const playerReducer = (state = playerInitialState , action) => {
 				...state ,
 				players ,
 			};
-		case 'REMOVE_PLAYER' :
+		case REMOVE_PLAYER :
 			console.log("removePlayer");
 			// const players2 = state.players.filter(player => player.id !== action.id );
 			players = state.players.filter(player => player.id !== action.id );
