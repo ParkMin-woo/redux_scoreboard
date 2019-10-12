@@ -13,7 +13,7 @@ const playerInitialState = {
 let maxId = 4;
 
 export const playerReducer = (state = playerInitialState , action) => {
-	let players
+	let players;
 	switch (action.type) {
 		case ADD_PLAYER :
 			console.log('addPlayer');
@@ -32,8 +32,23 @@ export const playerReducer = (state = playerInitialState , action) => {
 				players ,
 			};
 		case SCORE_UP_DOWN :
-			console.log("scoreUpDown");
-			break;
+			console.log("scoreUpDown" , action.id, action.delta);
+			players = [...state.players];
+			/*
+			const player = players.find(player => player.id === action.id);
+			player.score += action.delta;
+			 */
+
+			players.forEach(player => {
+				if(player.id === action.id) {
+					player.score += action.delta;
+				}
+			});
+
+			return {
+				...state,
+				players ,
+			};
 	}
 	return state;
 }
