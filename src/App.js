@@ -20,6 +20,7 @@ class App extends React.Component {
   }
   */
 
+  /*
   handleScoreUpDown = (id, delta) => {
     console.log("id : " , id , "delta : " , delta);
     // id값에 따라서
@@ -36,6 +37,7 @@ class App extends React.Component {
     });
 
   }
+  */
 
   // 내가 만들려고 시도해본거
   // handleAddPlayer = () => {
@@ -98,7 +100,7 @@ class App extends React.Component {
             id = {item.id}
             // index = {index}
             // removePlayer = {this.handleRemovePlayer}
-            scoreUpDown = {this.handleScoreUpDown}
+            // scoreUpDown = {this.handleScoreUpDown}
           />)
         }
         {/*<AddPlayerForm addPlayer = {this.handleAddPlayer} />*/}
