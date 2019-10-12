@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Player from "./components/Player";
 import AddPlayerForm from "./components/AddPlayerForm";
 import {connect} from "react-redux";
+import {CustomPlayer} from "./components/CustomPlayer";
 
 // 자식에서 부모로 통신하는 예제
 class App extends React.Component {
@@ -93,7 +94,7 @@ class App extends React.Component {
       <div className="scoreboard">
         <Header />
         {this.props.players.map(item =>
-          <Player
+          <CustomPlayer
             name = {item.name}
             score = {item.score}
             key = {item.id.toString()}
